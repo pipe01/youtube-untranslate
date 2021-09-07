@@ -1,11 +1,14 @@
 {
     "scripts": {
         "dev": "node build.js --watch",
-        "build": "node build.js",
-        "start": "cd .. && web-ext run --ignore-files=\"src/**/*\""
+        "build": "node build.js && web-ext build --ignore-files src/**/* build.bat --overwrite-dest",
+        "start": "web-ext run --ignore-files=\"src/**/*\""
     },
     "devDependencies": {
         "@types/webextension-polyfill": "^0.8.0",
         "esbuild": "^0.12.25"
+    },
+    "dependencies": {
+        "jszip": "^3.7.1"
     }
 }
