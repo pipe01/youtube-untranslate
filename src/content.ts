@@ -1,4 +1,4 @@
-import "regenerator-runtime"
+// import "regenerator-runtime"
 
 let titleElement: HTMLElement | null = null;
 let originalTitle: string;
@@ -10,7 +10,10 @@ async function load() {
         return;
     }
 
-    console.log(translatedTitle);
+    titleElement.innerText = translatedTitle;
+    titleElement.style.color = "";
+    titleElement.style.cursor = "";
+    titleElement.onclick = null;
 
     const data = await fetch(`https://www.youtube.com/oembed?format=json&url=${encodeURIComponent(location.href)}`).then(o => o.json());
     originalTitle = data.title;
@@ -19,16 +22,12 @@ async function load() {
         titleElement.innerText = originalTitle;
         titleElement.style.color = "rgb(164, 221, 255)";
         titleElement.style.cursor = "pointer";
-        titleElement.onclick = () => {
-            titleElement!.innerText = showingTranslated ? translatedTitle : originalTitle;
-            showingTranslated = !showingTranslated;
+        titleElement.onclick = e => {
+            if (!e.altKey) {
+                titleElement!.innerText = showingTranslated ? translatedTitle : originalTitle;
+                showingTranslated = !showingTranslated;
+            }
         }
-    } else {
-        titleElement.innerHTML = "";
-        titleElement.innerText = originalTitle;
-        titleElement.style.color = "";
-        titleElement.style.cursor = "";
-        titleElement.onclick = null;
     }
 }
 
