@@ -1,7 +1,6 @@
 import "regenerator-runtime"
 
 let titleElement: HTMLElement | null = null;
-let textElement: HTMLElement | null = null;
 let originalTitle: string;
 let translatedTitle: string;
 let showingTranslated = true;
@@ -17,31 +16,6 @@ async function load() {
     originalTitle = data.title;
 
     if (originalTitle !== translatedTitle) {
-        originalTitle = data.title;
-
-        // titleElement.innerHTML = "";
-
-        // textElement = document.createElement("span");
-        // titleElement.appendChild(textElement);    
-
-        // const toggler = document.createElement("a");
-        // toggler.href = "#";
-        // toggler.innerText = "Show translation";
-        // toggler.classList.add("yt-simple-endpoint", "style-scope", "yt-formatted-string");
-        // toggler.style.marginLeft = ".5rem";
-        // toggler.style.fontSize = ".7em";
-        // toggler.onclick = e => {
-        //     e.preventDefault();
-        //     toggler.innerText = showingTranslated ? "Show original" : "Show translation";
-
-        //     textElement!.innerText = showingTranslated ? translatedTitle : originalTitle;
-
-        //     showingTranslated = !showingTranslated;
-        // }
-        // titleElement.appendChild(toggler);
-
-        // textElement.innerText = originalTitle;
-
         titleElement.innerText = originalTitle;
         titleElement.style.color = "rgb(164, 221, 255)";
         titleElement.style.cursor = "pointer";
@@ -74,6 +48,7 @@ setInterval(() => {
 
 function refresh() {
     const params = new URLSearchParams(location.search);
+
     if (params.has("v")) {
         titleElement = document.querySelector<HTMLElement>("h1.title > *");
         if (titleElement) {
