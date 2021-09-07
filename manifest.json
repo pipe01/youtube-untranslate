@@ -2,7 +2,11 @@
   "description": "YouTube title untranslator",
   "manifest_version": 2,
   "name": "YouTube untranslate",
-  "version": "1.0",
+  "version": "1.0.1",
+  "icons": {
+    "48": "icons/48x48.png",
+    "96": "icons/96x96.png"
+  },
 
   "content_scripts": [
     {
