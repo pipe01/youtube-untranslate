@@ -1,0 +1,25 @@
+{
+  "description": "YouTube title untranslator",
+  "manifest_version": 2,
+  "name": "YouTube untranslate",
+  "version": "1.0",
+  "icons": {
+    "48": "icons/48x48.png",
+    "96": "icons/96x96.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://youtube.com/watch?*", "https://www.youtube.com/watch?*"],
+      "js": ["dist/content.js"],
+      "all_frames": true
+    }
+  ],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "youtube-untranslate@pipe01.net",
+      "strict_min_version": "50.0"
+    }
+  }
+}

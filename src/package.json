@@ -1,0 +1,14 @@
+{
+    "scripts": {
+        "dev": "parcel watch content.ts --out-dir ../dist --no-hmr",
+        "start": "cd .. && web-ext run --ignore-files=\"src/**/*\""
+    },
+    "devDependencies": {
+        "@types/webextension-polyfill": "^0.8.0",
+        "parcel-bundler": "^1.12.4",
+        "typescript": "^4.1.3"
+    },
+    "dependencies": {
+        "regenerator-runtime": "^0.13.9"
+    }
+}
