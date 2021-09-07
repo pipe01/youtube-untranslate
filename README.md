@@ -4,6 +4,8 @@ Untranslates YouTube video titles.
 
 ## To build
 
+Node.js and NPM are required, optionally also [pnpm](https://pnpm.io/es/).
+
 ```bash
 $ npm install
 $ npm run build
